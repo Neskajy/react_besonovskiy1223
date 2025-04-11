@@ -1,0 +1,44 @@
+@use "../../index.scss";
+
+.catalog {
+    .container {
+        h2 {
+            margin-bottom: 40px;
+        }
+        .categories {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            ul {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                li {
+                    padding: 5px 15px;
+                    color: index.$blue;
+                    border-radius: 4px;
+                    &.active {
+                        background: index.$blue;
+                        color: white;
+                    }
+                }
+            }
+        }
+        @media (max-width: 700px) {
+            .categories {
+                flex-direction: column;
+                align-items: flex-start;
+                ul {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+            }
+        }
+        .output {
+            margin-top: 55px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-gap: 20px;
+        }
+    }
+}
