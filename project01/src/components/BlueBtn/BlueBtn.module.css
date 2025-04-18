@@ -1,0 +1,8 @@
+.btn{
+    background-color: darkblue;
+    border-radius: 4px;
+    color: white;
+    font-size: 18px;
+    font-family: inherit;
+    padding: 10px 30px;
+}

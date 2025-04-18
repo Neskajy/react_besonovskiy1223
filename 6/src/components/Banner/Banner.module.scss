@@ -12,7 +12,7 @@
             position: absolute;
             left: 0;
             right: 0;
-            width: calc(100% - 20px);
+            width: 100%;
             height: 100vh;
             object-fit: cover;
         }
@@ -29,5 +29,11 @@
         .container {
             width: 95%;
         }
-    }
+        .background {
+            img {
+                object-fit: scale-down;
+                
+            }
+        }
+    }   
 }

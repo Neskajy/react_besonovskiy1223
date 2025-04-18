@@ -1,0 +1,18 @@
+@use "../../index.scss";
+
+.search {
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    background: rgb(219, 219, 219);
+    border-radius: 8px;
+    color: index.$blue;
+    font-size: 20px;
+    border: none;
+    &::placeholder {
+        color: index.$blue50;
+        font-size: 20px;
+    }
+}
