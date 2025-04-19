@@ -1,0 +1,78 @@
+@use "../../index.scss";
+
+.product {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.container {
+    display: flex;
+    width: 1300px;
+    flex-direction: column;
+    position: relative;
+    gap: 26px;
+}
+
+.product__info {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+
+@media (max-width: 1350px) {
+    .container {
+        width: 95%;
+    }
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.purchase {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+}
+
+a {
+    width: fit-content;
+    height: fit-content;
+    .btn3 {
+        @include index.btn(transparent, 10px 20px, 18px);
+        gap: 15px;
+    }
+
+}
+
+.btn4 {
+    @include index.btn(index.$blue, 10px 30px, 20px, $color:index.$white);
+}
+
+.text {
+    margin-bottom: 30px;
+    color: #232323;
+    font-size: 16px;
+    line-height: 170%;
+}
+
+.cost {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    * {
+        color: index.$blue;
+    }
+    .int {
+        font-size: 32px;
+    }
+    .currency {
+        font-size: 26px;
+    }
+}
