@@ -2,17 +2,9 @@ import s from "./BurgerMenu.module.scss";
 import { useState } from "react";
 
 export default function BurgerMenu() {
-    const [isActive, setIsActive] = useState(false);
-    
-    const handleClick = () => {
-        setIsActive(!isActive);
-        console.log("isActive:", isActive);
-        console.log("Applied className:", `${s.burger} ${isActive ? s.active : ""}`);
-    }
     return (
         <>
             <section className={s.BurgerMenu}>
-                
                 <div className={s.container}>
                     <nav className={s.nav}>
                         <ul className={s.ul}>

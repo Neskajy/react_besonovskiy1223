@@ -9,8 +9,12 @@ export default function Header() {
 
     const handleClick = () => {
         setIsActive(!isActive);
-        console.log("isActive:", isActive);
-        console.log("Applied className:", `${s.burger} ${isActive ? s.active : ""}`);
+    }
+
+    const [count, setCount] = useState(4);
+
+    function incrementCount() {
+        setCount(count + 1);
     }
 
     return (
@@ -28,8 +32,8 @@ export default function Header() {
                             <li>
                                 <Link to="/">Где нас найти</Link>
                             </li>
-                            <li>
-                                <Link to="/posts">Посты</Link>
+                            <li onClick={incrementCount}>
+                                { count }
                             </li>
                         </ul>
                     </nav>
