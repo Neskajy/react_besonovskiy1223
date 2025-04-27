@@ -1,24 +1,37 @@
+import { isActiveContextBurger } from "../../context.js";
 import s from "./BurgerMenu.module.scss";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 
 export default function BurgerMenu() {
+    const { isActiveBurger } = useContext(isActiveContextBurger);
+
+    const [count, setCount] = useState(0);
+
+    function incrementCount() {
+        setCount(count + 1);
+    }
+
     return (
         <>
-            <section className={s.BurgerMenu}>
+            <section className={`${s.BurgerMenu} ${isActiveBurger ? s.active : ""}`}>
                 <div className={s.container}>
-                    <nav className={s.nav}>
-                        <ul className={s.ul}>
-                            <li className={s.active}>
-                                <a href="/">О нас</a>
-                            </li>
-                            <li>
-                                <a href="/catalog">Каталог</a>
-                            </li>
-                            <li>
-                                <a href="/">Где нас найти</a>
-                            </li>
-                        </ul>
-                    </nav>
+                <nav className={s.nav}>
+                    <ul className={s.ul}>
+                        <li className={s.active}>
+                            <Link to="/">О нас</Link>
+                        </li>
+                        <li>
+                            <Link to="/catalog">Каталог</Link>
+                        </li>
+                        <li>
+                            <Link to="/">Где нас найти</Link>
+                        </li>
+                        <li onClick={incrementCount}>
+                            { count }
+                        </li>
+                    </ul>
+                </nav>
                 </div>
             </section>
         </>
