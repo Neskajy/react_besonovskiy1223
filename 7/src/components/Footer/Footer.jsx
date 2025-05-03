@@ -19,7 +19,7 @@ export default function Footer() {
                                 <Link to="/catalog">Каталог</Link>
                             </li>
                             <li>
-                                <Link to="/">Где нас найти</Link>
+                                <Link to="/basket">Корзина</Link>
                             </li>
                         </ul>
                     </nav>

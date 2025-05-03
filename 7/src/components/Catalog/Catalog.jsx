@@ -1,9 +1,8 @@
 import Card from "../Card/Card.jsx";
 import s from "./Catalog.module.scss";
 import { props } from "../../props.js";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Search from "../Search/Search.jsx";
-
 
 export default function Catalog() {
     const [search, setSearch] = useState('');
@@ -29,12 +28,11 @@ export default function Catalog() {
                     <div className={s.output}>
                         {
                             filteredProps.map(prop=>
-                                <Card key={prop.id} name={prop.name} price={prop.price} img={prop.img} id={prop.id} />
+                                <Card key={prop.id} addToCard={() => setCart([...cart, product.id])} cart={prop} />
                             )
                         }
                     </div>
                 </div>
-
             </section>
         </>
     )

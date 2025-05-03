@@ -31,11 +31,11 @@ export default function Header() {
                             <Link to="/catalog">Каталог</Link>
                         </li>
                         <li>
-                            <Link to="/">Где нас найти</Link>
+                            <Link to="/basket">Корзина</Link>
                         </li>
-                        <li onClick={incrementCount}>
+                        {/* <li onClick={incrementCount}>
                             { count }
-                        </li>
+                        </li> */}
                     </ul>
                 </nav>
                 <div 

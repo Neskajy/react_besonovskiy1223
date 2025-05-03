@@ -25,10 +25,7 @@ export default function BurgerMenu() {
                             <Link to="/catalog">Каталог</Link>
                         </li>
                         <li>
-                            <Link to="/">Где нас найти</Link>
-                        </li>
-                        <li onClick={incrementCount}>
-                            { count }
+                            <Link to="/basket">Корзина</Link>
                         </li>
                     </ul>
                 </nav>

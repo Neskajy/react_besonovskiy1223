@@ -1,8 +1,9 @@
 @use "/src/index.scss";
 
 .footer {
-    background: index.$black;
-    margin-top: 100px;
+    background: index.$black;    
+    position: absolute;
+    bottom: 0;
     .container {
         display: flex;
         justify-content: space-between;
