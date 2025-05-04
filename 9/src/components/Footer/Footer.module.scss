@@ -1,0 +1,25 @@
+@use "/src/index.scss";
+
+.footer {
+    background: index.$black;    
+    position: absolute;
+    bottom: 0;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 30px;
+        padding-bottom: 55px;
+        .nav {
+            .ul {
+                display: flex;
+                align-items: center;
+                gap: 70px;
+                color: index.$white;
+                .active {
+                    color: index.$blue;
+                }
+            }
+        }
+    }
+}

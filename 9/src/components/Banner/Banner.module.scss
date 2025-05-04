@@ -1,0 +1,39 @@
+@use "../../index.scss";
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    
+    .background {
+        img {
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+        }
+    }
+
+    .container {
+        width: 1300px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    @media (max-width: 1350px) {
+        .container {
+            width: 95%;
+        }
+        .background {
+            img {
+                object-fit: scale-down;
+                
+            }
+        }
+    }   
+}

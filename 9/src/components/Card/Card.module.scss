@@ -1,0 +1,60 @@
+@use "../../index.scss";
+
+.card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    * {
+        font-family: "Ubuntu500" !important;
+        font-weight: 500;
+    }
+    a {
+        width: 100%;
+        img {
+            width: 100%;
+            // height: 500px;
+            aspect-ratio: 420 / 432;
+        }
+    }
+    .container {
+        p {
+            font-size: 15px;
+        }
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .data {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .cost {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                * {
+                    color: index.$blue;
+                }
+                .int {
+                    font-size: 32px;
+                }
+                .currency {
+                    font-size: 26px;
+                }
+            }
+            .btn3 {
+                background: index.$blue;
+                padding: 10px 30px;
+                cursor: pointer;
+                border-radius: 8px;
+                color: index.$white;
+                font-size: 20px;
+                img {
+                    width: 25px;
+                    aspect-ratio: 1 / 1;
+                }
+            }
+        }
+    }
+}
