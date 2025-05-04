@@ -17,6 +17,7 @@
                     padding: 5px 15px;
                     color: index.$blue;
                     border-radius: 4px;
+                    cursor: pointer;
                     &.active {
                         background: index.$blue;
                         color: white;

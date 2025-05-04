@@ -1,8 +1,11 @@
 import s from "./Footer.module.scss";
 import flogo from "../../assets/svg/flogo.svg";
-import { Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 export default function Footer() {
+    const path = useLocation();
+    
+
     return (
         <>
             <footer className={s.footer}>
@@ -12,13 +15,13 @@ export default function Footer() {
                     </div>
                     <nav className={s.nav}>
                         <ul className={s.ul}>
-                            <li className={s.active}>
+                            <li className={path.pathname == "/" ? `${s.active}` : ""}>
                                 <Link to="/">О нас</Link>
                             </li>
-                            <li>
+                            <li className={path.pathname.slice(0, 8) == "/catalog" ? `${s.active}` : ""}>
                                 <Link to="/catalog">Каталог</Link>
                             </li>
-                            <li>
+                            <li className={path.pathname.slice(0, 7) == "/basket" ? `${s.active}` : ""}>
                                 <Link to="/basket">Корзина</Link>
                             </li>
                         </ul>

@@ -11,11 +11,31 @@ import { Routes, Route} from "react-router-dom";
 import { isActiveContextBurger } from "./context.js";
 import { BasketCartsContext } from "./context.js";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function App() {
     const [isActiveBurger, setIsActiveBurger] = useState(false);
-    const [basketCarts, setBasketCarts] = useState([]);
+    const [basketCarts, setBasketCarts] = useState(() => {
+        const saved = localStorage.getItem("basketCarts");
+        return saved ? JSON.parse(saved) : [];
+    });
+
+    useEffect(() => {
+        const saved = localStorage.getItem("basketCarts");
+        console.log(saved)
+        if (saved) {
+            try {
+                setBasketCarts(JSON.parse(saved));
+            } catch (e) {
+                console.error("Ошибка парсинга корзины:", e);
+            }
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("basketCarts", JSON.stringify(basketCarts));
+    }, [basketCarts]);
+
     return (
         <BasketCartsContext.Provider value={{ basketCarts, setBasketCarts }}>
             <isActiveContextBurger.Provider value={{ isActiveBurger, setIsActiveBurger }}>

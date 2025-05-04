@@ -6,10 +6,29 @@ import Search from "../Search/Search.jsx";
 
 export default function Catalog() {
     const [search, setSearch] = useState('');
+    const [renderCards, setRenderCards] = useState(props);
+    const [activeCategory, setActiveCategory] = useState("all");
     function handleChange(e){
         setSearch(e.target.value);
     }
-    const filteredProps = props.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
+    function renderCategory(category) {
+
+        let categoryProps;
+        if (category == "all") {
+            categoryProps = props;
+        } else {
+            categoryProps = props.filter(product => product.category.toLocaleLowerCase() == category);
+        }
+        
+        setActiveCategory(category);
+        setRenderCards(categoryProps);
+    }
+
+    function handleCategoryClick(category) {
+        setActiveCategory(category);
+    } 
+
+    const filteredProps = renderCards.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
     return (
         <>
             <section className={s.catalog}>
@@ -18,10 +37,10 @@ export default function Catalog() {
                     <div className={s.categories}>
                         Категории
                         <ul>
-                            <li className={s.active}>Все товары</li>
-                            <li>Шины/колеса</li>
-                            <li>Масла</li>
-                            <li>Ароматизаторы</li>
+                            <li className={activeCategory == "all" ? `${s.active}` : ""} onClick={() => renderCategory("all")}>Все товары</li>
+                            <li className={activeCategory == "tires" ? `${s.active}` : ""} onClick={() => renderCategory("tires")}>Шины/колеса</li>
+                            <li className={activeCategory == "oil" ? `${s.active}` : ""} onClick={() => renderCategory("oil")}>Масла</li>
+                            <li className={activeCategory == "flavoring" ? `${s.active}` : ""} onClick={() => renderCategory("flavoring")}>Ароматизаторы</li>
                         </ul>
                     </div>
                     <Search className="search" handleChange={handleChange}/>
